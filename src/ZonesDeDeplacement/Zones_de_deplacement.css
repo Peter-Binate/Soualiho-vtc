@@ -1,0 +1,39 @@
+#zones-deplacement > h2{
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    margin-bottom: 70px;
+}
+#zones-deplacement{
+    margin-top: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+hr{
+    height: 1px;
+}
+
+#lieux{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lieu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.lieu > img{
+    width: 320px;
+    height: 280px;
+}
+
+.lieu > p{
+    font-size: 30px;
+    margin-top: 10px;
+}

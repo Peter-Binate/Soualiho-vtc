@@ -1,0 +1,294 @@
+:root{
+    --navbar-background: #3C3CA1;
+    --font-color-navbar: #fff;
+    --font-color-body: #354052;
+    --font-size: 1.2rem;
+}
+
+/*On Initialise le Css*/
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.container-grille{
+    display: grid;
+    width: 100%; 
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr 1.5fr 1.2fr .2fr;
+    grid-template-areas: 
+    "nav nav nav nav"
+    "main main main main"
+    "zones-deplacement zones-deplacement zones-deplacement zones-deplacement"
+    "footer footer footer footer";
+    background-color: yellow;
+}
+
+nav{
+    grid-area: nav;
+    /*height: 80px;*/
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    font-size: var(--font-size);
+    position: sticky; /*Permet de fixer le nav pendant le scroll*/
+    top: 0; /*Permet de bien positionner le nav en haut pendant le scroll*/
+    z-index: 999;
+}
+nav{
+    grid-area: nav;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-radius);
+}
+
+main{
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-radius);
+}
+
+footer{
+    background-color: #1de9b6;
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-radius);
+}
+
+.navbar-container{
+    min-width: 1500px;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-logo{
+    color: var(--font-color-body);
+    justify-self: start;
+    margin-left: 90px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/*Nav format mobile lorsqu'on a pas encore cliquer sur l'icon burger*/
+.nav-menu{
+    display: grid;
+    grid-template-columns: repeat(4, auto); /*Affiche en colonne en format mobile*/
+    grid-gap: 10px; /* Espace verticale de 10*/
+    list-style: none;
+    text-align: center;
+    width: 60vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+/*On ajuste la taille des liens à la taille du nav*/
+.nav-item{
+    height: 80px;
+}
+
+/*Chacun de mes liens dans le nav*/
+.nav-links{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: var(--font-color-body);
+    text-decoration: none;
+    padding: 0.5rem 1rem; /*Hauteur Largeur*/
+}
+
+.nav-links:hover{
+    border-bottom: 4px solid var(--font-color-body);
+    bottom: 2px;
+    transition: all 0.2s ease-out;
+}
+
+/*croix qui remplace le burger*/
+.fa-bars {
+    color: var(--font-color-navbar);
+}
+
+/*Fait disparaitre le menu burger en format ordi*/
+.menu-icon{
+    display: none;
+}
+
+/*Format Mobile*/
+@media only screen and (max-width: 550px) {
+    .container{
+        grid-template-columns: 0.2fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+        "nav"
+        "main"
+        "zones-deplacement"
+        "zones-deplacement"
+        "zones-deplacement"
+        "zones-deplacement"
+        "footer";     
+    }    
+    
+    nav{
+        background-color: var(--navbar-background);
+        width: 100%;
+    }
+
+    .NavbarItems{
+        position: relative;
+    }
+
+    /*Si on n'a pas encore cliquer sur le burger*/
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active{
+        background-color: var(--navbar-background);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links{
+        color: var(--font-color-navbar);
+        margin-top: -250px;
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-links:hover {
+        background-color: var(--font-color-body);
+        color: var(--font-color-navbar);
+        border-radius: 0;
+    }
+
+    .navbar-logo{
+        color: var(--font-color-navbar);
+        justify-self: start;
+        margin-left: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    /*Contenue de la Croix qui remplace le burger*/  
+    .menu-icon{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 135%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    /*Croix qui remplace le burger*/
+    .fa-times{
+        color: var(--font-color-navbar);
+        font-size: 1.8rem;
+    }
+
+    .nav-links-mobile:hover {
+        background-color: var(--font-color-body);
+        color: var(--font-color-navbar);
+        transition: 250ms;
+    }
+}
+
+/*@media screen and (max-width: 960px){
+    .NavbarItems{
+        position: relative;
+    }
+
+    .navbar{
+        background-color: var(--navbar-background);
+    }*/
+
+    /*Si on n'a pas encore cliquer sur le burger*/
+    /*.nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active{
+        background-color: var(--navbar-background);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links{
+        color: var(--font-color-navbar);
+        margin-top: -250px;
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-links:hover {
+        background-color: var(--font-color-body);
+        color: var(--font-color-navbar);
+        border-radius: 0;
+    }
+
+    .navbar-logo {
+        color: var(--font-color-navbar);
+        margin-left: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(50%, 60%);
+    }
+
+    /*Contenue de la Croix qui remplace le burger*/  
+    /*.menu-icon{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    /*Croix qui remplace le burger*/
+    /*.fa-times{
+        color: var(--font-color-navbar);
+        font-size: 1.8rem;
+    }
+
+    .nav-links-mobile:hover {
+        background-color: var(--font-color-body);
+        color: var(--font-color-navbar);
+        transition: 250ms;
+      }
+}*/ 

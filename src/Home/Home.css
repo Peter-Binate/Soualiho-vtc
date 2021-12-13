@@ -1,0 +1,52 @@
+:root{
+    --navbar-background: #3C3CA1;
+    --font-color-navbar: #fff;
+    --body-font-color: #354052;
+    --font-size: 1.2rem;
+}
+#Home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#home-title{
+    color: var(--body-font-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 2;
+    margin-top: 125px;
+    margin-bottom: 30px;
+}
+#home-title h1{
+    font-size: 120px;
+}
+
+#home-title h2{
+    font-size: 40px;
+}
+
+#home-image > img{
+    display: table;
+    position: relative;
+    margin: auto;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+#home-image{
+    bottom: 0;
+    position: absolute;
+}
+
+@media only screen and (max-width: 667px) {
+    #home-title h1{
+        font-size: 40px;
+    }
+    
+    #home-title h2{
+        font-size: 20px;
+    }    
+      
+}
+
